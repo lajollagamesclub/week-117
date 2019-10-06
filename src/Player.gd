@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
-const gravity = 300
+const gravity = 700
 const move_speed = 150
+const jump_speed = 200
 
 var acceleration = Vector2(0, gravity)
 var velocity = Vector2()
@@ -15,6 +16,7 @@ func _physics_process(delta):
 	
 	# fetching input
 	move.x = int(Input.is_action_pressed("g_right")) - int(Input.is_action_pressed("g_left"))
+	move.y = int(Input.is_action_just_pressed("g_jump") and is_on_floor())
 	
 	# tweak animations
 	if abs(move.x) > 0:
@@ -23,10 +25,12 @@ func _physics_process(delta):
 		$AnimatedSprite.play("default")
 	if move.x < 0:
 		$AnimatedSprite.flip_h = true
-	else:
+	elif move.x > 0:
 		$AnimatedSprite.flip_h = false
 	
 	# calculate physics
 	velocity += acceleration*delta
 	velocity.x = move.x*move_speed
-	velocity = move_and_slide(velocity, Vector2(0, 1))
+	if abs(move.y) > 0:
+		velocity.y = -move.y*jump_speed
+	velocity = move_and_slide(velocity, Vector2(0, -1))
