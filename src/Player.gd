@@ -3,6 +3,7 @@ extends KinematicBody2D
 const gravity = 700
 const move_speed = 150
 const jump_speed = 200
+const game_state = preload("res://game_state.tres")
 
 var acceleration = Vector2(0, gravity)
 var velocity = Vector2()
@@ -44,4 +45,7 @@ func _physics_process(delta):
 			velocity.y = -jump_speed*2
 
 func hurt():
-	print("ouch")
+	$AnimationPlayer.play("hurt")
+	game_state.health -= 1
+	if game_state.health <= 0:
+		$DieStreamPlayer.play()
