@@ -32,8 +32,9 @@ func _physics_process(delta):
 	velocity.x = move.x*move_speed
 	if abs(move.y) > 0:
 		if is_on_wall():
-			$DustParticles.emitting = true
-			$DustParticles.restart()
+			var new_dust_particles = preload("res://DustParticles.tscn").instance()
+			get_parent().add_child(new_dust_particles)
+			new_dust_particles.global_position = global_position + Vector2(0, 5)
 		velocity.y = -move.y*jump_speed
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 	for c in get_slide_count():
