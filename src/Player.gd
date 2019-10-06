@@ -27,7 +27,6 @@ func _physics_process(delta):
 		$AnimatedSprite.flip_h = true
 	elif move.x > 0:
 		$AnimatedSprite.flip_h = false
-	
 	# calculate physics
 	velocity += acceleration*delta
 	velocity.x = move.x*move_speed
@@ -37,3 +36,11 @@ func _physics_process(delta):
 			$DustParticles.restart()
 		velocity.y = -move.y*jump_speed
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+	for c in get_slide_count():
+		var collision: KinematicCollision2D = get_slide_collision(c)
+		if collision.normal.y < -0.9 and collision.normal.x < 0.1 and collision.collider.is_in_group("goomba"):
+			collision.collider.die()
+			velocity.y = -jump_speed*2
+
+func hurt():
+	print("ouch")
