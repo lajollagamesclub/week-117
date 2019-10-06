@@ -16,7 +16,7 @@ func _physics_process(delta):
 	
 	# fetching input
 	move.x = int(Input.is_action_pressed("g_right")) - int(Input.is_action_pressed("g_left"))
-	move.y = int(Input.is_action_just_pressed("g_jump") and is_on_floor())
+	move.y = int(Input.is_action_just_pressed("g_jump") and (is_on_floor() or is_on_wall()))
 	
 	# tweak animations
 	if abs(move.x) > 0:
@@ -32,5 +32,8 @@ func _physics_process(delta):
 	velocity += acceleration*delta
 	velocity.x = move.x*move_speed
 	if abs(move.y) > 0:
+		if is_on_wall():
+			$DustParticles.emitting = true
+			$DustParticles.restart()
 		velocity.y = -move.y*jump_speed
 	velocity = move_and_slide(velocity, Vector2(0, -1))
