@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Week 117"
 run/main_scene="res://TitleScreen.tscn"
+boot_splash/image="res://logo.png"
 config/icon="res://icon.png"
 
 [display]
