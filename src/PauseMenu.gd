@@ -1,9 +1,7 @@
 extends MarginContainer
 
-var muted: bool = false
-
 func _ready():
-	pass
+	AudioServer.set_bus_mute(0, Settings.d["muted"])
 
 func _input(event):
 	if event.is_action_pressed("g_pause"):
@@ -11,8 +9,8 @@ func _input(event):
 		visible = get_tree().paused
 
 func _on_MuteButton_pressed():
-	muted = !muted
-	AudioServer.set_bus_mute(0, muted)
+	Settings.d["muted"] = !Settings.d["muted"]
+	AudioServer.set_bus_mute(0, Settings.d["muted"])
 
 func _on_ResumeButton_pressed():
 	get_tree().paused = false
