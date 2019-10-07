@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://default_theme.tres" type="Theme" id=1]
-[ext_resource path="res://BackButton.gd" type="Script" id=2]
+[ext_resource path="res://BackButton.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -45,12 +45,4 @@ Albert Einstein - physics"
 align = 1
 autowrap = true
 
-[node name="BackButton" type="Button" parent="UI/VBoxContainer"]
-margin_top = 500.0
-margin_right = 600.0
-margin_bottom = 600.0
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.2
-text = "Back"
-script = ExtResource( 2 )
-[connection signal="pressed" from="UI/VBoxContainer/BackButton" to="UI/VBoxContainer/BackButton" method="_on_BackButton_pressed"]
+[node name="BackButton" parent="UI/VBoxContainer" instance=ExtResource( 2 )]
