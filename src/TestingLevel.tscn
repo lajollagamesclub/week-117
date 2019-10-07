@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tile-set.tres" type="TileSet" id=1]
 [ext_resource path="res://SignPost.tscn" type="PackedScene" id=2]
 [ext_resource path="res://TODOSignPost.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=4]
 
 [node name="TestingLevel" type="Node2D"]
 
@@ -24,24 +23,19 @@ text = "welcome to TEST_ALPHA5 !"
 position = Vector2( 21.692, 387.312 )
 text = "TODO hide back of level"
 
-[node name="PlayerItems" type="Node2D" parent="."]
-
-[node name="Player" parent="PlayerItems" instance=ExtResource( 4 )]
-position = Vector2( 298.367, 241.78 )
-
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 5 )]
+[node name="Enemy" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( 428.896, 279.286 )
 
-[node name="Enemy4" parent="Enemies" instance=ExtResource( 5 )]
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( 281.769, 313.896 )
 
-[node name="Enemy5" parent="Enemies" instance=ExtResource( 5 )]
+[node name="Enemy5" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( 328.08, 319.777 )
 
-[node name="Enemy6" parent="Enemies" instance=ExtResource( 5 )]
+[node name="Enemy6" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( 232.518, 327.863 )
 
-[node name="Enemy7" parent="Enemies" instance=ExtResource( 5 )]
+[node name="Enemy7" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( 361.894, 308.016 )

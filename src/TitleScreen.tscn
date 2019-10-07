@@ -4,7 +4,7 @@
 [ext_resource path="res://lunchds.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://PlayButton.gd" type="Script" id=3]
 [ext_resource path="res://CreditsButton.gd" type="Script" id=4]
-[ext_resource path="res://QuitButton.gd" type="Script" id=5]
+[ext_resource path="res://QuitButton.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 128
@@ -51,13 +51,6 @@ size_flags_vertical = 3
 text = "Credits"
 script = ExtResource( 4 )
 
-[node name="QuitButton" type="Button" parent="UI/VBoxContainer/Buttons"]
-margin_top = 200.0
-margin_right = 600.0
-margin_bottom = 298.0
-size_flags_vertical = 3
-text = "Quit"
-script = ExtResource( 5 )
+[node name="QuitButton" parent="UI/VBoxContainer/Buttons" instance=ExtResource( 5 )]
 [connection signal="pressed" from="UI/VBoxContainer/Buttons/PlayButton" to="UI/VBoxContainer/Buttons/PlayButton" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/Buttons/CreditsButton" to="UI/VBoxContainer/Buttons/CreditsButton" method="_on_CreditsButton_pressed"]
-[connection signal="pressed" from="UI/VBoxContainer/Buttons/QuitButton" to="UI/VBoxContainer/Buttons/QuitButton" method="_on_QuitButton_pressed"]
