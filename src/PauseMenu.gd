@@ -15,3 +15,7 @@ func _on_MuteButton_pressed():
 func _on_ResumeButton_pressed():
 	get_tree().paused = false
 	visible = false
+
+func _on_RestartButtonp_pressed():
+	get_tree().change_scene("res://Main.tscn")
+	get_tree().paused = false

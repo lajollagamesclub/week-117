@@ -23,7 +23,6 @@ stream = ExtResource( 3 )
 autoplay = true
 
 [node name="UI" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="MainGUI" type="MarginContainer" parent="UI"]
 editor/display_folded = true
@@ -83,19 +82,27 @@ size_flags_stretch_ratio = 2.0
 
 [node name="ResumeButton" type="Button" parent="UI/PauseMenu/VBoxContainer/Buttons"]
 margin_right = 600.0
-margin_bottom = 130.0
+margin_bottom = 96.0
 size_flags_vertical = 3
 text = "Resume"
 
 [node name="MuteButton" type="Button" parent="UI/PauseMenu/VBoxContainer/Buttons"]
-margin_top = 134.0
+margin_top = 100.0
 margin_right = 600.0
-margin_bottom = 264.0
+margin_bottom = 196.0
 size_flags_vertical = 3
 text = "Toggle Mute"
 
+[node name="RestartButton" type="Button" parent="UI/PauseMenu/VBoxContainer/Buttons"]
+margin_top = 200.0
+margin_right = 600.0
+margin_bottom = 296.0
+size_flags_vertical = 3
+text = "Restart"
+
 [node name="QuitButton" parent="UI/PauseMenu/VBoxContainer/Buttons" instance=ExtResource( 7 )]
-margin_top = 268.0
+margin_top = 300.0
 margin_bottom = 398.0
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/Buttons/ResumeButton" to="UI/PauseMenu" method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/VBoxContainer/Buttons/MuteButton" to="UI/PauseMenu" method="_on_MuteButton_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/VBoxContainer/Buttons/RestartButton" to="UI/PauseMenu" method="_on_RestartButtonp_pressed"]
