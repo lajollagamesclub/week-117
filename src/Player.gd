@@ -48,4 +48,6 @@ func hurt():
 	$AnimationPlayer.play("hurt")
 	game_state.health -= 1
 	if game_state.health <= 0:
-		$DieStreamPlayer.play()
+		DieStreamPlayer.play()
+		get_tree().change_scene("res://Main.tscn")
+		game_state.health = game_state.max_health

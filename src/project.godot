@@ -28,6 +28,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Settings="*res://Settings.gd"
+DieStreamPlayer="*res://DieStreamPlayer.tscn"
 
 [display]
 
